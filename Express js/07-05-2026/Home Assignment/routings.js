@@ -1,3 +1,5 @@
+// routings.js
+
 const express = require("express");
 
 const router = express.Router();
@@ -25,6 +27,16 @@ router.patch("/users/:id", (req, res) => {
 // DELETE
 router.delete("/users/:id", (req, res) => {
   res.send(`DELETE user ${req.params.id}`);
+});
+
+// METHOD NOT ALLOWED
+router.all("/users/:id", (req, res) => {
+  res.status(405).send("Method Not Allowed");
+});
+
+// PAGE NOT FOUND
+router.use((req, res) => {
+  res.status(404).send("Page Not Found");
 });
 
 module.exports = router;
