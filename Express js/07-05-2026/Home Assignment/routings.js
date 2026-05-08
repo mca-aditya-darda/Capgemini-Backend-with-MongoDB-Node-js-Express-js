@@ -1,5 +1,3 @@
-// routings.js
-
 const express = require("express");
 
 const router = express.Router();
@@ -36,7 +34,7 @@ router.all("/users/:id", (req, res) => {
 
 // PAGE NOT FOUND
 router.use((req, res) => {
-  res.status(404).send("Page Not Found");
+  res.status(404).send("URL Not Found");
 });
 
 module.exports = router;
